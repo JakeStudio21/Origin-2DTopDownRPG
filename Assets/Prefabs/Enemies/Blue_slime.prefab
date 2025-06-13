@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 3746799392073795553}
   - component: {fileID: 8403660534966338527}
   - component: {fileID: -752092573500323026}
+  - component: {fileID: 8998232531007038718}
   m_Layer: 0
   m_Name: Blue_slime
   m_TagString: Untagged
@@ -263,3 +264,16 @@ MonoBehaviour:
   goldCoin: {fileID: 6665777931767919178, guid: 4c1beef6b9ea18040b610449d3c0db32, type: 3}
   healthGlobe: {fileID: 6665777931767919178, guid: aacbdfe33f02b224a903be18011e1ff4, type: 3}
   staminaGlobe: {fileID: 6665777931767919178, guid: ea450cde76b9ade4a95e612a90c23e67, type: 3}
+--- !u!114 &8998232531007038718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3235174918318939483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f900f912e45dc04cb967cf245078a55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gizmoColor: {r: 0.7375602, g: 1, b: 0.5529412, a: 1}

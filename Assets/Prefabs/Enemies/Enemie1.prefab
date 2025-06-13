@@ -20,6 +20,7 @@ GameObject:
   - component: {fileID: 4795855821891295909}
   - component: {fileID: 4822367794375699013}
   - component: {fileID: 3483880470552431240}
+  - component: {fileID: 9183738283701349947}
   m_Layer: 0
   m_Name: Enemie1
   m_TagString: Untagged
@@ -278,6 +279,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   grapeProjectilePrefab: {fileID: 6774872879692375580, guid: 04ff1809e923b95448370fac4de6cd67, type: 3}
+--- !u!114 &9183738283701349947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8853189013130719682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f900f912e45dc04cb967cf245078a55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gizmoColor: {r: 0, g: 1, b: 0, a: 1}
 --- !u!1 &9119814869723337947
 GameObject:
   m_ObjectHideFlags: 0
