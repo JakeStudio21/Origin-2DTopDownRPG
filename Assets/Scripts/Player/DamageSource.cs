@@ -7,6 +7,7 @@ public class DamageSource : MonoBehaviour
     private int damageAmount;
 
     private void Start() {
+
         MonoBehaviour currentActiveweapon = ActiveWeapon.Instance.CurrentActiveWeapon;
         damageAmount = (currentActiveweapon as IWeapon).GetWeaponInfo().weaponDamage;
     }

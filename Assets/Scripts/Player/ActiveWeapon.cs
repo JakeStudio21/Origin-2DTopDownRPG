@@ -35,6 +35,7 @@ public class ActiveWeapon : Singleton<ActiveWeapon>
     }
 
     public void NewWeapon(MonoBehaviour newWeapon) {
+
         CurrentActiveWeapon = newWeapon;
 
         AttackCooldown();

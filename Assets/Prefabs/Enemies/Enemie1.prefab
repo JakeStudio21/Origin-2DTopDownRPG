@@ -222,7 +222,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingHealth: 3
   deathVFXPrefab: {fileID: 3742472245823238563, guid: bd70ee4f74ce51541b06f36a76ab47fd, type: 3}
-  knockBackThrust: 15
+  knockBackThrust: 10
 --- !u!114 &2733928855307480320
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -235,7 +235,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50d40584c0dabc34bb1b662a2cf18afb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  knockBackTime: 0.2
+  knockBackTime: 0.1
 --- !u!114 &4795855821891295909
 MonoBehaviour:
   m_ObjectHideFlags: 0

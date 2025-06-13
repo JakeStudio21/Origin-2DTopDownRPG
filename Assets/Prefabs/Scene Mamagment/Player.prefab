@@ -289,7 +289,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3597342599379846293}
-  - component: {fileID: 2877656792893651715}
+  - component: {fileID: 794654622549236628}
   - component: {fileID: 2194707268983086037}
   m_Layer: 0
   m_Name: ActiveWeapon
@@ -314,7 +314,7 @@ Transform:
   - {fileID: 7264508375256867420}
   m_Father: {fileID: 8477380869007209772}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2877656792893651715
+--- !u!114 &794654622549236628
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -446,8 +446,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 972fbe965fb5a8d4abcb27e59371b700, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 4
-  dashspeed: 4
+  moveSpeed: 6
+  dashspeed: 8
   myTrailRenderer: {fileID: 4602630472629665941}
   weaponCollider: {fileID: 5337248612677347209}
 --- !u!50 &2625955227663354421
