@@ -165,6 +165,7 @@ GameObject:
   - component: {fileID: 5337248612677347209}
   - component: {fileID: 6988780603166527602}
   - component: {fileID: 8614579202396699507}
+  - component: {fileID: 3358758540558703838}
   m_Layer: 0
   m_Name: WeaponCollider
   m_TagString: Untagged
@@ -249,6 +250,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0c26e755b753dc4c9c0bba5b5ceabc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3358758540558703838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4975978923945851505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f900f912e45dc04cb967cf245078a55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gizmoColor: {r: 0, g: 1, b: 0, a: 1}
 --- !u!1 &5614862686505903872
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement; // 씬 전환을 위해 필요
 
 public class LobbyUIController : MonoBehaviour
 {
@@ -65,6 +66,12 @@ public class LobbyUIController : MonoBehaviour
             // 회색, 반투명
             panelImage.color = new Color(0.5f, 0.5f, 0.5f, 0.5f);
         }
+    }
+
+    public void OnPlayButton()
+    {
+        Debug.Log("Play 버튼 클릭! Scene1로 이동합니다.");
+        SceneManager.LoadScene("Scene1");
     }
 
     public void OnLogoutButton()
