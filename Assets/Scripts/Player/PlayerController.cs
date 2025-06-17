@@ -47,10 +47,12 @@ public class PlayerController : Singleton<PlayerController>
      }
 
      private void OnDisable() {
+     if (playerControls != null)
           playerControls.Disable();
      }
 
-     private void Update() {
+     private void Update()
+     {
           PlayerInput();
      }
 

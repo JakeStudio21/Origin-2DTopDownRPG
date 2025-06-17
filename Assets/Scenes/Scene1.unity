@@ -50837,6 +50837,97 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2730600031695642617, guid: 5b35ae152e9cb2549b8967f930ca17bc, type: 3}
   m_PrefabInstance: {fileID: 947849563}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1303257278
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1303257280}
+  - component: {fileID: 1303257279}
+  - component: {fileID: 1303257281}
+  m_Layer: 0
+  m_Name: PortalGate
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!61 &1303257279
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1303257278}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.088521, y: 0.0084114075}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.4061108, y: 3.0519972}
+  m_EdgeRadius: 0
+--- !u!4 &1303257280
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1303257278}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 19.44, y: -1.01, z: -0.034327008}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1303257281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1303257278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f900f912e45dc04cb967cf245078a55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gizmoColor: {r: 0, g: 1, b: 0, a: 1}
 --- !u!4 &1303751167 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8624914559476540002, guid: cbed9d33189d7814cb20e2f3cfba91ff, type: 3}
@@ -52143,12 +52234,20 @@ PrefabInstance:
     m_TransformParent: {fileID: 346649876}
     m_Modifications:
     - target: {fileID: 1357538892725404220, guid: 3d4b9342267097642bd90872b835c36e, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1357538892725404220, guid: 3d4b9342267097642bd90872b835c36e, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1357538892725404220, guid: 3d4b9342267097642bd90872b835c36e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 26.7
+      value: 23.5
       objectReference: {fileID: 0}
     - target: {fileID: 1357538892725404220, guid: 3d4b9342267097642bd90872b835c36e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.53
+      value: -0.68
       objectReference: {fileID: 0}
     - target: {fileID: 1357538892725404220, guid: 3d4b9342267097642bd90872b835c36e, type: 3}
       propertyPath: m_LocalPosition.z
@@ -52184,7 +52283,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3235174918318939483, guid: 3d4b9342267097642bd90872b835c36e, type: 3}
       propertyPath: m_Name
-      value: Blue_slime (18)
+      value: Boss_Blue_slime
+      objectReference: {fileID: 0}
+    - target: {fileID: 5752732880782816917, guid: 3d4b9342267097642bd90872b835c36e, type: 3}
+      propertyPath: isBoss
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5752732880782816917, guid: 3d4b9342267097642bd90872b835c36e, type: 3}
+      propertyPath: isDead
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -53018,6 +53125,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneToLoad: Scene2
   SceneTransitionName: WEntry
+  portalGate: {fileID: 1303257278}
 --- !u!1 &1062129398947231377
 GameObject:
   m_ObjectHideFlags: 0
@@ -53029,6 +53137,7 @@ GameObject:
   - component: {fileID: 4278854094907444626}
   - component: {fileID: 4873210932580361090}
   - component: {fileID: 959607188293217245}
+  - component: {fileID: 4873210932580361091}
   m_Layer: 0
   m_Name: AreaExit
   m_TagString: Untagged
@@ -58352,6 +58461,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.1651802, y: 1.6331966}
   m_EdgeRadius: 0
+--- !u!114 &4873210932580361091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1062129398947231377}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f900f912e45dc04cb967cf245078a55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gizmoColor: {r: 0, g: 1, b: 0, a: 1}
 --- !u!1001 &5747721693014755468
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -58618,6 +58740,7 @@ SceneRoots:
   - {fileID: 1953800541}
   - {fileID: 346649876}
   - {fileID: 988684900}
+  - {fileID: 1303257280}
   - {fileID: 4278854094907444626}
   - {fileID: 573293670949109394}
   - {fileID: 3860670753648142946}
