@@ -17,7 +17,9 @@ public class EnemyHealth : MonoBehaviour
 
     public bool isBoss = false; // Inspector에서 체크
 
-    // public int health = 100;
+    public string bossId = ""; // Inspector에서 "BossA", "BossB" 등으로 설정
+    public bool isMiniBoss = false;  // Inspector에서 "BossA", "BossB" 등으로 설정
+
     public bool isDead = false;
 
 
