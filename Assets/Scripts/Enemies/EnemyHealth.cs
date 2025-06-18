@@ -22,6 +22,8 @@ public class EnemyHealth : MonoBehaviour
 
     public bool isDead = false;
 
+    public FinalBossSpawner bossSpawner; // Inspector에서 "FinalBossA" 설정용
+
 
     private void Awake()
     {
@@ -59,10 +61,18 @@ public class EnemyHealth : MonoBehaviour
         // 죽는 연출, 파괴 등 추가
         // Destroy(gameObject); // 필요에 따라
 
-      foreach (var col in GetComponentsInChildren<Collider2D>())
-      {
-          col.enabled = false;
-      }
+        foreach (var col in GetComponentsInChildren<Collider2D>())
+        {
+            col.enabled = false;
+        }
+
+        // 보스라면 스포너에 죽음 알림
+        // Inspector에서 "FinalBossA" 설정용
+        if (bossSpawner != null && !string.IsNullOrEmpty(bossId))
+        {
+            bossSpawner.OnBossDeath(bossId, transform.position);
+        }
+        
     }
 
     private IEnumerator CheckDetectDeathRoutine()
