@@ -76,10 +76,10 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -20, y: 30}
-      - {x: -20, y: -30}
-      - {x: 20, y: -30}
-      - {x: 20, y: 30}
+    - - {x: -40, y: 50}
+      - {x: -40, y: -50}
+      - {x: 40, y: -50}
+      - {x: 40, y: 50}
   m_UseDelaunayMesh: 0
 --- !u!1 &3944099697674421132
 GameObject:
@@ -225,7 +225,7 @@ MonoBehaviour:
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
-    ModeOverride: 0
+    ModeOverride: 1
     LensShift: {x: 0, y: 0}
     GateFit: 2
     FocusDistance: 10
@@ -339,11 +339,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa7155796051b734daa718462081dc5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_BindingMode: 1
+  m_BindingMode: 2
   m_FollowOffset: {x: 0, y: 0, z: -10}
-  m_XDamping: 1
-  m_YDamping: 1
-  m_ZDamping: 1
+  m_XDamping: 0
+  m_YDamping: 0
+  m_ZDamping: 0
   m_AngularDampingMode: 0
   m_PitchDamping: 0
   m_YawDamping: 0
@@ -574,7 +574,7 @@ MonoBehaviour:
   m_Priority: 10
   m_StandbyUpdate: 2
   m_LookAt: {fileID: 0}
-  m_Follow: {fileID: 8477380869007209772, guid: 58dc68c76c16f984ea6a09e43e0fed65, type: 3}
+  m_Follow: {fileID: 0}
   m_AnimatedTarget: {fileID: 0}
   m_LayerIndex: 0
   m_ShowDebugText: 0

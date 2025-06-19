@@ -488,6 +488,7 @@ MonoBehaviour:
   assassinButton: {fileID: 1981818409}
   warriorPanelImage: {fileID: 401726500}
   assassinPanelImage: {fileID: 2078510741}
+  selectedPlayerData: {fileID: 11400000, guid: b94c907bf7e88f74580d22c03855d5cc, type: 2}
 --- !u!4 &556843224
 Transform:
   m_ObjectHideFlags: 0

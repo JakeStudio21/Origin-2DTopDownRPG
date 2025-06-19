@@ -15,6 +15,8 @@ public class LobbyUIController : MonoBehaviour
 
     private string selectedClass = "";
 
+    // public SelectedPlayerData selectedPlayerData; // Inspector에 연결
+
     void Start()
     {
         // 초기 상태: 아무것도 선택 안 함
@@ -29,6 +31,15 @@ public class LobbyUIController : MonoBehaviour
         selectedClass = className;
         playerNameInfoText.text = className;
         UpdateClassSelection(className);
+
+        // ScriptableObject에 선택 정보 저장--------------
+        if (className == "Warrior")
+            selectedPlayerData.selectedClass = PlayerClass.Warrior;
+        else if (className == "Assassin")
+            selectedPlayerData.selectedClass = PlayerClass.Assassin;
+        else
+            selectedPlayerData.selectedClass = PlayerClass.None;
+        // ScriptableObject에 선택 정보 저장----------------
     }
 
     void UpdateClassSelection(string className)
@@ -67,6 +78,32 @@ public class LobbyUIController : MonoBehaviour
             panelImage.color = new Color(0.5f, 0.5f, 0.5f, 0.5f);
         }
     }
+
+
+// ----------------------- 캐릭터선택창에서 선택한 플레이어정보 읽어와서 Scene1로 보내기 --------------
+    public SelectedPlayerData selectedPlayerData; // 인스펙터에 ScriptableObject 연결
+
+    public void OnSelectWarrior()
+    {
+        selectedPlayerData.selectedClass = PlayerClass.Warrior;
+    }
+
+    public void OnSelectAssassin()
+    {
+        selectedPlayerData.selectedClass = PlayerClass.Assassin;
+    }
+
+    public void OnClickPlay()
+    {
+        if (selectedPlayerData.selectedClass == PlayerClass.None)
+        {
+            Debug.LogWarning("캐릭터를 선택하세요!");
+            return;
+        }
+        SceneManager.LoadScene("Scene1");
+    }
+// ----------------------- 캐릭터선택창에서 선택한 플레이어정보 읽어와서 Scene1로 보내기 --------------
+
 
     public void OnPlayButton()
     {
