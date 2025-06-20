@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class ResultPopupController : MonoBehaviour
 {
@@ -31,19 +32,31 @@ public class ResultPopupController : MonoBehaviour
 
     void OnConfirm()
     {
-        Debug.Log("OK 버튼이 눌렸습니다!"); // 이 줄 추가
+        // 중복 클릭 방지를 위해 리스너를 잠시 제거하고, 코루틴을 통해 로비로 돌아갑니다.
+        confirmButton.interactable = false;
+        StartCoroutine(ReturnToLobbyRoutine());
+    }
+
+    IEnumerator ReturnToLobbyRoutine()
+    {
         Time.timeScale = 1f;
-        // SceneManager.LoadScene("Lobby");
+
+        // 1. 플레이어 오브젝트 파괴
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        if (player != null) { Destroy(player); }
+
+        // 2. 각종 매니저들의 부모 오브젝트 파괴
+        GameObject managers = GameObject.Find("Managers");
+        if (managers != null) { Destroy(managers); }
+
+        // 3. 씬에 독립적으로 존재하는 싱글톤 오브젝트들 파괴
+        if (Stamina.Instance != null) { Destroy(Stamina.Instance.gameObject); }
+
+        // Destroy 명령이 실행될 시간을 벌어주기 위해 한 프레임 대기합니다.
+        yield return new WaitForEndOfFrame();
+
         UnityEngine.SceneManagement.SceneManager.LoadScene("Lobby");
     }
-    // {
-    //     confirmButton.onClick.AddListener(OnConfirm);
-    //     if (gameObject == null) return; // 이 오브젝트가 파괴되었으면 실행하지 않음
-
-    //     popupPanel.SetActive(true);
-    //     messageText.text = isVictory ? "Victory" : "Defeat";
-    //     // 배경색 등도 필요하면 여기서 바꿀 수 있음
-    // }
 
     // void OnConfirm()
     // {

@@ -36,6 +36,15 @@ public class FinalBossSpawner : MonoBehaviour
     {
         Debug.Log("모든 보스 처치! 엔딩 연출 등");
 
+        StartCoroutine(ShowVictoryPopupAfterDelay(1.5f));
+    // FindObjectOfType<ResultPopupController>().Show(true); // Victory
+    }
+}
+
+    private IEnumerator ShowVictoryPopupAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
         var popup = FindObjectOfType<ResultPopupController>();
         if (popup != null && popup.gameObject != null)
         {
@@ -45,9 +54,7 @@ public class FinalBossSpawner : MonoBehaviour
         {
             Debug.LogError("ResultPopupController를 찾을 수 없습니다!");
         }
-    // FindObjectOfType<ResultPopupController>().Show(true); // Victory
     }
-}
 
     private IEnumerator SpawnBossWithDelay(GameObject bossPrefab, Vector3 pos, float delay) // ★
     {

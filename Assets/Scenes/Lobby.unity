@@ -2612,11 +2612,11 @@ RectTransform:
   - {fileID: 71694577}
   - {fileID: 168317091}
   - {fileID: 790889479}
+  - {fileID: 1078222919}
+  - {fileID: 1981818406}
   - {fileID: 1773830319}
   - {fileID: 1056273807}
   - {fileID: 1867047387}
-  - {fileID: 1981818406}
-  - {fileID: 1078222919}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
