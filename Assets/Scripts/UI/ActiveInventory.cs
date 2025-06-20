@@ -2,31 +2,32 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ActiveInventory : Singleton<ActiveInventory>
+public class ActiveInventory : MonoBehaviour
 {
     private int activeSlotIndexNum = 0;
 
     private PlayerControls playerControls;
 
-    protected override void Awake() {
-        base.Awake();
-
+    private void Awake() {
         playerControls = new PlayerControls();
-    }
-
-    private void Start() {
-        playerControls.Inventory.Keyboard.performed += ctx => ToggleActiveSlot((int)ctx.ReadValue<float>());
     }
 
     private void OnEnable() {
         playerControls.Enable();
+        playerControls.Inventory.Keyboard.performed += ToggleActiveSlot;
+    }
+
+    private void OnDisable() {
+        playerControls.Inventory.Keyboard.performed -= ToggleActiveSlot;
+        playerControls.Disable();
     }
 
     public void EquipStartingweapon() {
         ToggleActiveHighlight(0);
     }
 
-    private void ToggleActiveSlot(int numValue) {
+    private void ToggleActiveSlot(UnityEngine.InputSystem.InputAction.CallbackContext ctx) {
+        int numValue = (int)ctx.ReadValue<float>();
         ToggleActiveHighlight(numValue - 1);
     }
 

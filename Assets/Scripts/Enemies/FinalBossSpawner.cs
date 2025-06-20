@@ -9,11 +9,15 @@ public class FinalBossSpawner : MonoBehaviour
     public GameObject finalBossCPrefab;
 
     private GameObject currentBoss;
+    private ResultPopupController resultPopup;
 
     void Start()
     {
         // Scene 시작 시 FinalBossA 스폰
         SpawnBoss(finalBossAPrefab, transform.position);
+
+        // ResultPopupController 미리 참조
+        resultPopup = FindObjectOfType<ResultPopupController>();
     }
 
     // 보스가 죽을 때마다 호출
@@ -31,6 +35,17 @@ public class FinalBossSpawner : MonoBehaviour
     else if (bossId == "FinalBossC")
     {
         Debug.Log("모든 보스 처치! 엔딩 연출 등");
+
+        var popup = FindObjectOfType<ResultPopupController>();
+        if (popup != null && popup.gameObject != null)
+        {
+            popup.Show(true);
+        }
+        else
+        {
+            Debug.LogError("ResultPopupController를 찾을 수 없습니다!");
+        }
+    // FindObjectOfType<ResultPopupController>().Show(true); // Victory
     }
 }
 
@@ -52,16 +67,4 @@ public class FinalBossSpawner : MonoBehaviour
         }
     }
 
-    // private void SpawnBoss(GameObject bossPrefab, Vector3 pos)
-    // {
-    //     if (bossPrefab == null) return;
-    //     currentBoss = Instantiate(bossPrefab, pos, Quaternion.identity);
-
-    //     // EnemyHealth에 스포너 연결
-    //     EnemyHealth eh = currentBoss.GetComponent<EnemyHealth>();
-    //     if (eh != null)
-    //     {
-    //         eh.bossSpawner = this;
-    //     }
-    // }
 }

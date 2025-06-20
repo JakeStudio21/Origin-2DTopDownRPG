@@ -22,10 +22,6 @@ public class Stamina : Singleton<Stamina>
         CurrentStamina = startingStamina;
     }
 
-    private void Start() {
-        staminaContainer = GameObject.Find(STAMINA_CONTAINER_TEXT).transform;
-    }
-
     public void UseStamina() {
         CurrentStamina--;
         UpdateStaminaImages();
@@ -47,6 +43,13 @@ public class Stamina : Singleton<Stamina>
     }
 
     private void UpdateStaminaImages() {
+        if (staminaContainer == null)
+        {
+            var containerGO = GameObject.Find(STAMINA_CONTAINER_TEXT);
+            if (containerGO == null) { return; }
+            staminaContainer = containerGO.transform;
+        }
+
         for (int i = 0; i < maxStamina; i++)
         {
             if (i <= CurrentStamina - 1) {

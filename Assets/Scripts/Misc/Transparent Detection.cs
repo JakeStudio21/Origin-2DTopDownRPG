@@ -17,6 +17,30 @@ public class TransparentDetection : MonoBehaviour
         tilemap = GetComponent<Tilemap>();
     }
 
+    // private void OnTriggerEnter2D(Collider2D other) {
+    //     if (other.gameObject.GetComponent<PlayerController>()) {
+    //         if (!gameObject.activeInHierarchy) return; // 비활성화면 실행하지 않음
+
+    //         if (spriteRenderer) {
+    //             StartCoroutine(FadeRoutine(spriteRenderer, fadeTime, spriteRenderer.color.a, transparencyAmount));
+    //         } else if (tilemap) {
+    //             StartCoroutine(FadeRoutine(tilemap, fadeTime, tilemap.color.a, transparencyAmount));
+    //         }
+    //     }
+    // }
+
+    // private void OnTriggerExit2D(Collider2D other) {
+    //     if (other.gameObject.GetComponent<PlayerController>()) {
+    //         if (!gameObject.activeInHierarchy) return; // 비활성화면 실행하지 않음
+
+    //         if (spriteRenderer) {
+    //             StartCoroutine(FadeRoutine(spriteRenderer, fadeTime, spriteRenderer.color.a, 1f));
+    //         } else if (tilemap) {
+    //             StartCoroutine(FadeRoutine(tilemap, fadeTime, tilemap.color.a, 1f));
+    //         }
+    //     }
+    // }
+
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.gameObject.GetComponent<PlayerController>()) {
             if (spriteRenderer) {
@@ -38,8 +62,9 @@ public class TransparentDetection : MonoBehaviour
         }
     }
 
-    private IEnumerator FadeRoutine(SpriteRenderer spriteRenderer, float fadeTime, float startValue, float targetTransparency) {
-        float elapsedTime = 0;     
+    private IEnumerator FadeRoutine(SpriteRenderer spriteRenderer, float fadeTime, float startValue, float targetTransparency)
+    {
+        float elapsedTime = 0;
         while (elapsedTime < fadeTime)
         {
             elapsedTime += Time.deltaTime;

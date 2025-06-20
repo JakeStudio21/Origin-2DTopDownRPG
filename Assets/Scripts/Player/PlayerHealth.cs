@@ -17,6 +17,7 @@ public class PlayerHealth : Singleton<PlayerHealth>
     private bool canTakeDamage = true;
     private Knockback knockback;
     private Flash flash;
+    private ResultPopupController resultPopup;  // 팝업 컨트롤러 참조
 
     const string HEALTH_SLIDER_TEXT = "Health Slider";
     const string TOWN_TEXT = "Scene1";
@@ -29,11 +30,29 @@ public class PlayerHealth : Singleton<PlayerHealth>
         knockback = GetComponent<Knockback>();
     }
 
-    private void Start() {
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    private void Start()
+    {
         isDead = false;
         currentHealth = maxHealth;
-
         UpdateHealthSlider();
+        resultPopup = FindObjectOfType<ResultPopupController>();
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        healthSlider = null; // 씬이 로드되면 슬라이더 참조를 리셋
+        UpdateHealthSlider();
+        resultPopup = FindObjectOfType<ResultPopupController>();
     }
 
     private void OnCollisionStay2D(Collision2D other) {
@@ -65,19 +84,33 @@ public class PlayerHealth : Singleton<PlayerHealth>
     }
 
     private void CheckIfPlayerDeath() {
-        if (currentHealth <= 0 && !isDead) {
+        if (currentHealth <= 0 && !isDead)
+        {
             isDead = true;
-            Destroy(ActiveWeapon.Instance.gameObject);
+            if (ActiveWeapon.Instance.CurrentActiveWeapon != null)
+            {
+                Destroy(ActiveWeapon.Instance.CurrentActiveWeapon.gameObject);
+            }
+            // Destroy(ActiveWeapon.Instance.gameObject);
             currentHealth = 0;
             GetComponent<Animator>().SetTrigger(DEATH_HASH);
             StartCoroutine(DeathLoadSceneRoutine());
+            
+            // 추가: 플레이어 입력 비활성화 등이 필요하다면 여기서 처리
         }
     }
 
     private IEnumerator DeathLoadSceneRoutine() {
         yield return new WaitForSeconds(2f);
-        Destroy(gameObject);
-        SceneManager.LoadScene(TOWN_TEXT);
+
+        // 팝업 표시 (Defeat)
+        if (resultPopup != null) {
+            resultPopup.Show(false);
+        }
+        
+        // 기존 코드 주석 처리 (팝업에서 처리할 것이므로)
+        // Destroy(gameObject);
+        // SceneManager.LoadScene(TOWN_TEXT);
     }
 
     private IEnumerator DamageRecoveryRoutine() {

@@ -18,7 +18,7 @@ public class AreaExit : MonoBehaviour
         if (other.gameObject.GetComponent<PlayerController>())
         {
             SceneManagement.Instance.SetTransitionName(SceneTransitionName);
-            UIFade.Instance.FadeToBlack();
+            // UIFade.Instance.FadeToBlack();
             StartCoroutine(LoadSceneRoutine());
         }
 
@@ -63,16 +63,6 @@ public class AreaExit : MonoBehaviour
                 portalGate.SetActive(true);
             }
         }
-        // if (boss != null && boss.isDead)
-        // {
-        //     if (portalGate != null && portalGate.activeSelf)
-        //         portalGate.SetActive(false);
-        // }
-        // else
-        // {
-        //     if (portalGate != null && !portalGate.activeSelf)
-        //         portalGate.SetActive(true);
-        // }
     }
 
 

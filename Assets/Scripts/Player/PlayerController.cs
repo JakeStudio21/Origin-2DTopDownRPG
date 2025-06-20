@@ -39,7 +39,7 @@ public class PlayerController : Singleton<PlayerController>
 
           startingMoveSpeed = moveSpeed;
 
-          ActiveInventory.Instance.EquipStartingweapon();
+          FindObjectOfType<ActiveInventory>().EquipStartingweapon();
      }
 
      private void OnEnable() {
