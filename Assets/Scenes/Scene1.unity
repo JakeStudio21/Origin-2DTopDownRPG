@@ -52180,11 +52180,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 289422e6503f31441a0a3a70b057a49d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedPlayerData: {fileID: 11400000, guid: b94c907bf7e88f74580d22c03855d5cc, type: 2}
   warriorPrefab: {fileID: 7542120236176968360, guid: d94ca6159cff23349bd27586688d7d67, type: 3}
   assassinPrefab: {fileID: 7542120236176968360, guid: 120398e7ca312d242813fdcb88cc86b6, type: 3}
   spawnPoint: {fileID: 1305896363}
-  virtualCamera: {fileID: 7619795899081330027}
 --- !u!4 &1993821318
 Transform:
   m_ObjectHideFlags: 0
@@ -58151,17 +58149,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9bda97a5754c7d24d983d2210bbe04ca, type: 3}
---- !u!114 &7619795899081330027 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1047354427173174211, guid: 9bda97a5754c7d24d983d2210bbe04ca, type: 3}
-  m_PrefabInstance: {fileID: 7619795899081330026}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45e653bab7fb20e499bda25e1b646fea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &8842702640050405553
 Transform:
   m_ObjectHideFlags: 0

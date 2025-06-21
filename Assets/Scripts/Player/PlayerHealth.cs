@@ -53,6 +53,12 @@ public class PlayerHealth : Singleton<PlayerHealth>
         healthSlider = null; // 씬이 로드되면 슬라이더 참조를 리셋
         UpdateHealthSlider();
         resultPopup = FindObjectOfType<ResultPopupController>();
+
+        // 씬이 로드될 때마다 카메라가 플레이어를 따라가도록 설정합니다.
+        if (CameraController.Instance != null)
+        {
+            CameraController.Instance.SetPlayerCameraFollow();
+        }
     }
 
     private void OnCollisionStay2D(Collision2D other) {
@@ -101,7 +107,7 @@ public class PlayerHealth : Singleton<PlayerHealth>
     }
 
     private IEnumerator DeathLoadSceneRoutine() {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSecondsRealtime(2f);
 
         // 팝업 표시 (Defeat)
         if (resultPopup != null) {
@@ -114,7 +120,7 @@ public class PlayerHealth : Singleton<PlayerHealth>
     }
 
     private IEnumerator DamageRecoveryRoutine() {
-        yield return new WaitForSeconds(damageRecoveryTime);
+        yield return new WaitForSecondsRealtime(damageRecoveryTime);
         canTakeDamage = true;
     }
 

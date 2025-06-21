@@ -1,19 +1,24 @@
 using UnityEngine;
-using Cinemachine; // 로비에서 캐릭터선택후 Scene1에 입장할때 카메라 연결이 끊기는 문제처리를 위한 추가
 
 public class PlayerSpawner : MonoBehaviour
 {
-    public SelectedPlayerData selectedPlayerData; // ScriptableObject 연결
+    // [Header("Data")]
+    // public SelectedPlayerData selectedPlayerData; // 이제 GameDataManager를 통해 접근합니다.
+
+    [Header("Prefabs")]
     public GameObject warriorPrefab;
     public GameObject assassinPrefab;
-    public Transform spawnPoint;
 
-    public CinemachineVirtualCamera virtualCamera; // Inspector에 연결
+    [Header("Spawn")]
+    public Transform spawnPoint;
 
     void Start()
     {
+        var selectedClass = GameDataManager.Instance.selectedPlayerData.selectedClass;
+        Debug.Log($"[Scene1] 스포너 시작. 선택된 클래스: {selectedClass}");
+
         GameObject prefabToSpawn = null;
-        switch (selectedPlayerData.selectedClass)
+        switch (selectedClass)
         {
             case PlayerClass.Warrior:
                 prefabToSpawn = warriorPrefab;
@@ -21,30 +26,24 @@ public class PlayerSpawner : MonoBehaviour
             case PlayerClass.Assassin:
                 prefabToSpawn = assassinPrefab;
                 break;
+            default:
+                Debug.LogWarning($"선택된 클래스가 '{selectedClass}'입니다. 기본 프리팹(Warrior)으로 스폰합니다.");
+                // 기본값으로 Warrior를 스폰하여 게임이 멈추지 않도록 합니다.
+                prefabToSpawn = warriorPrefab;
+                break;
         }
+
         if (prefabToSpawn != null)
         {
             GameObject player = Instantiate(prefabToSpawn, spawnPoint.position, Quaternion.identity);
 
-            // ★ 카메라 Follow/LookAt 연결
-            if (virtualCamera != null)
-            {
-                virtualCamera.Follow = player.transform;
-                virtualCamera.LookAt = player.transform;
-            }
+            // 카메라가 새로 생성된 플레이어를 따라가도록 설정
+            CameraController.Instance.SetPlayerCameraFollow();
         }
         else
         {
-            Debug.LogError("선택된 캐릭터가 없습니다!");
+            // 이 경우는 warriorPrefab이 할당되지 않았을 때만 발생합니다.
+            Debug.LogError("스폰할 플레이어 프리팹이 없습니다! Warrior 프리팹이 PlayerSpawner에 연결되었는지 확인하세요.");
         }
-
-        // if (prefabToSpawn != null)
-        // {
-        //     Instantiate(prefabToSpawn, spawnPoint.position, Quaternion.identity);
-        // }
-        // else
-        // {
-        //     Debug.LogError("선택된 캐릭터가 없습니다!");
-        // }
     }
 }

@@ -37,7 +37,7 @@ public class Stamina : Singleton<Stamina>
     private IEnumerator RefreshStaminaRoutine() {
         while (true)
         {
-            yield return new WaitForSeconds(timeBetweenStaminaRefresh);
+            yield return new WaitForSecondsRealtime(timeBetweenStaminaRefresh);
             RefreshStamina();
         }
     }

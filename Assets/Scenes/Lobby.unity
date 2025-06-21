@@ -379,6 +379,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 168317090}
   m_CullTransparentMesh: 1
+--- !u!1 &283088767
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 283088769}
+  - component: {fileID: 283088768}
+  m_Layer: 0
+  m_Name: GameDataManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &283088768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 283088767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea6ecfc546148154faeca1db4fc09d96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectedPlayerData: {fileID: 11400000, guid: b94c907bf7e88f74580d22c03855d5cc, type: 2}
+--- !u!4 &283088769
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 283088767}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 269.31, y: 154.48155, z: 0.08098669}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &401726498
 GameObject:
   m_ObjectHideFlags: 0
@@ -486,9 +531,9 @@ MonoBehaviour:
   playerNameInfoText: {fileID: 71694578}
   warriorButton: {fileID: 1078222922}
   assassinButton: {fileID: 1981818409}
+  playButton: {fileID: 1867047388}
   warriorPanelImage: {fileID: 401726500}
   assassinPanelImage: {fileID: 2078510741}
-  selectedPlayerData: {fileID: 11400000, guid: b94c907bf7e88f74580d22c03855d5cc, type: 2}
 --- !u!4 &556843224
 Transform:
   m_ObjectHideFlags: 0
@@ -2183,31 +2228,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1867047389}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 556843223}
-        m_TargetAssemblyTypeName: LobbyUIController, Assembly-CSharp
-        m_MethodName: OnEnterBattleButton
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 556843223}
-        m_TargetAssemblyTypeName: LobbyUIController, Assembly-CSharp
-        m_MethodName: OnPlayButton
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1867047389
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2696,3 +2717,4 @@ SceneRoots:
   - {fileID: 6651754947011118134}
   - {fileID: 883958747}
   - {fileID: 556843224}
+  - {fileID: 283088769}

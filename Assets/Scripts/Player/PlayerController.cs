@@ -61,6 +61,12 @@ public class PlayerController : Singleton<PlayerController>
           Move();
      }
 
+     public void ReEnableControls()
+     {
+        playerControls.Disable();
+        playerControls.Enable();
+     }
+
      public Transform GetWeaponCollider() {
           return weaponCollider;
      }
@@ -104,10 +110,10 @@ public class PlayerController : Singleton<PlayerController>
      private IEnumerator EndDashRoutine() {
           float dashTime = .2f;
           float dashCD = .25f;
-          yield return new WaitForSeconds(dashTime);
+          yield return new WaitForSecondsRealtime(dashTime);
           moveSpeed = startingMoveSpeed;
           myTrailRenderer.emitting = false;
-          yield return new WaitForSeconds(dashCD);
+          yield return new WaitForSecondsRealtime(dashCD);
           isDashing = false;
      }
 } 

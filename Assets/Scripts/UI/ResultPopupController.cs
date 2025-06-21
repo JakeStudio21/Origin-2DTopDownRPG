@@ -46,8 +46,8 @@ public class ResultPopupController : MonoBehaviour
         if (player != null) { Destroy(player); }
 
         // 2. 각종 매니저들의 부모 오브젝트 파괴
-        GameObject managers = GameObject.Find("Managers");
-        if (managers != null) { Destroy(managers); }
+        // GameObject managers = GameObject.Find("Managers");
+        // if (managers != null) { Destroy(managers); }
 
         // 3. 씬에 독립적으로 존재하는 싱글톤 오브젝트들 파괴
         if (Stamina.Instance != null) { Destroy(Stamina.Instance.gameObject); }
