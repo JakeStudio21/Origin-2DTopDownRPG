@@ -5,11 +5,13 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour
 {
     // [SerializeField] private int startingHealth = 3; - 몬스터 체력을 시작할때 체력으로 세팅한 경우(이전버전)
-    [SerializeField] private GameObject deathVFXPrefab;
+    [Header("Health & Damage")]
+    [SerializeField] private int maxHealth = 100;
     [SerializeField] private float knockBackThrust = 15f;
-    [SerializeField] private int maxHealth = 100; // 초기체력을 MaxHealth로 변경
+    [SerializeField] private GameObject deathVFXPrefab;
 
-
+    [Header("Experience")]
+    [SerializeField] private int experienceGiven = 10; // 몬스터가 주는 경험치
 
     private int currentHealth;
     private Knockback knockback;
@@ -39,53 +41,46 @@ public class EnemyHealth : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        // 이미 죽었다면 아무것도 처리하지 않습니다.
+        if (isDead) return;
+
         currentHealth -= damage;
         knockback.GetKnockedBack(PlayerController.Instance.transform, knockBackThrust);
         StartCoroutine(flash.FlashRoutine());
-        StartCoroutine(CheckDetectDeathRoutine());
 
-        currentHealth -= damage;
-        if (currentHealth <= 0 && !isDead)
+        if (currentHealth <= 0)
         {
-            Die();
+            // isDead 플래그를 즉시 설정하여 중복 실행을 막고, 죽음 코루틴을 시작합니다.
+            isDead = true;
+            StartCoroutine(DieRoutine());
         }
     }
 
-    void Die()
+    private IEnumerator DieRoutine()
     {
-        isDead = true;
-        if (isBoss)
-        {
-            Debug.Log("보스처치완료");
-        }
-        // 죽는 연출, 파괴 등 추가
-        // Destroy(gameObject); // 필요에 따라
+        // 1. 설정된 경험치 추가 (단 한번만 실행 보장)
+        PlayerLevel.Instance.AddExp(experienceGiven);
 
+        // 2. 모든 콜라이더를 비활성화하여 추가 상호작용을 막습니다.
         foreach (var col in GetComponentsInChildren<Collider2D>())
         {
             col.enabled = false;
         }
 
-        // 보스라면 스포너에 죽음 알림
-        // Inspector에서 "FinalBossA" 설정용
-        if (bossSpawner != null && !string.IsNullOrEmpty(bossId))
+        // 3. 보스 관련 로직 처리
+        if (isBoss && bossSpawner != null && !string.IsNullOrEmpty(bossId))
         {
             bossSpawner.OnBossDeath(bossId, transform.position);
         }
-        
-    }
 
-    private IEnumerator CheckDetectDeathRoutine()
-    {
+        // 4. 죽음 파티클 생성 및 아이템 드랍
+        Instantiate(deathVFXPrefab, transform.position, Quaternion.identity);
+        GetComponent<PickUpSpawner>().DropItems();
+
+        // 5. 플래시 효과가 끝날 때까지 잠시 대기
         yield return new WaitForSeconds(flash.GetRestoreMatTime());
-        DetectDeath();
-    }
-
-    public void DetectDeath() {
-        if (currentHealth <= 0) {
-            Instantiate(deathVFXPrefab, transform.position, Quaternion.identity);
-            GetComponent<PickUpSpawner>().DropItems();
-            Destroy(gameObject);
-        }
+        
+        // 6. 게임 오브젝트 파괴
+        Destroy(gameObject);
     }
 }
